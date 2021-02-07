@@ -25,7 +25,6 @@
         </configuration>
 
 
-
       </plugin>
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
