@@ -24,7 +24,6 @@
           <release>11</release>
         </configuration>
 
-
       </plugin>
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
