@@ -23,14 +23,7 @@
         <configuration>
           <release>11</release>
         </configuration>
-         <!--ASMの導入。（http://atmarksharp.v01.jp/posts/asm-java-bytecode-generator.html）-->
-        <dependencies>
-            <dependency>
-              <groupId>org.ow2.asm</groupId>
-              <artifactId>asm</artifactId>
-              <version>6.1</version>
-            </dependency>
-        </dependencies>
+
       </plugin>
 
       <plugin>
@@ -40,28 +33,6 @@
           <warSourceDirectory>WebContent</warSourceDirectory>
         </configuration>
       </plugin>
-       <!-- アプリ依存のjarファイルを作成するためのプラグイン -->
-      <!-- https://devcenter.heroku.com/articles/deploying-java -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <executions>
-            <execution>
-                <phase>package</phase>
-                <goals><goal>copy</goal></goals>
-                <configuration>
-                    <artifactItems>
-                        <artifactItem>
-                            <groupId>com.github.jsimone</groupId>
-                            <artifactId>webapp-runner</artifactId>
-                            <version>9.0.27.0</version>
-                            <destFileName>webapp-runner.jar</destFileName>
-                        </artifactItem>
-                    </artifactItems>
-                </configuration>
-            </execution>
-        </executions>
-     </plugin>
     </plugins>
   </build>
 </project>
