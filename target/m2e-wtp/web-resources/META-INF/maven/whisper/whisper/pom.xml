@@ -4,6 +4,10 @@
   <artifactId>whisper</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+      <!-- 文字コードの設定 -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
     <!--javaxを読込めるようにする-->
   <dependencies>
       <dependency>
