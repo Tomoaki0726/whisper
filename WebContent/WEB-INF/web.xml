@@ -6,7 +6,7 @@
     id="WebApp_ID" version="3.1">
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>Login</servlet-class>
+        <servlet-class>servlet.Login</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
