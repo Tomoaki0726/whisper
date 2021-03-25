@@ -12,12 +12,12 @@ import model.Mutter;
 
 public class MutterDAO {
 
-private final String DRIVER_NAME ="org.h2.Driver";
+private final String DRIVER_NAME ="com.mysql.cj.jdbc.Driver";
 //パスの設定の仕方よく分からず記載
 private final String JDBC_URL =
-	"jdbc:h2:tcp://localhost/~/whisper";
-private final String DB_USER = "sa";
-private final String DB_PASS = "";
+	"jdbc:mysql://localhost/whisper";
+private final String DB_USER = "root";
+private final String DB_PASS = "Hiro0816";
 
 //レコードを取得するメソッド
 public List<Mutter> findAll(){
@@ -29,10 +29,10 @@ public List<Mutter> findAll(){
 	//	SELECT文の準備
 		String sql =
 		"SELECT ID,NAME,TEXT FROM MUTTER ORDER BY ID DESC";
-		//SQL文をDBに届ける
+		//SQL文をDBに届ける(SQLの送信)
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
-		//SELECTを実行
+		//SELECTを実行(結果の受け取り)
 		ResultSet rs = pStmt.executeQuery();
 
 		//SELECT文の結果をArrayListに格納
