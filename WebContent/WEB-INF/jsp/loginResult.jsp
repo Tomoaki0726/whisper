@@ -16,7 +16,7 @@ User loginUser = (User) session.getAttribute("loginUser");
 <% if(loginUser != null){ %>
 	<p>ログインに成功しました</p>
 	<p>ようこそ<%= loginUser.getName() %>さん</p>
-	<a href="/whisper/Main">ささやき投稿一覧へ</a>
+	<a href="/Main">ささやき投稿一覧へ</a>
 <% }else{ %>
 	<p>ログインに失敗しました</p>
 	<a href="/whisper/">TOPへ</a>
