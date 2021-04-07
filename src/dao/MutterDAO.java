@@ -1,5 +1,7 @@
 package dao;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,20 +14,28 @@ import model.Mutter;
 
 public class MutterDAO {
 
-private final String DRIVER_NAME ="com.mysql.cj.jdbc.Driver";
-//パスの設定の仕方よく分からず記載
-private final String JDBC_URL =
-	"jdbc:mysql://localhost/whisper";
-private final String DB_USER = "root";
-private final String DB_PASS = "Hiro0816";
+    private static Connection getConnection() throws URISyntaxException, SQLException {
+            // heroku configに設定されている値を取得。
+        URI dbUri = new URI(System.getenv("mysql://be6d7e4a904395:864d3dc7@us-cdbr-east-03.cleardb.com/heroku_4488a6e33c6001c?reconnect=true"));
+        // :をデリミタとして必要な情報を抜き取る。
+        String username = dbUri.getUserInfo().split(":")[0];
+        String password = dbUri.getUserInfo().split(":")[1];
+        // JDBC用のURLを生成。
+        String dbUrl = "jdbc:mysql://" + dbUri.getHost() + dbUri.getPath();
+
+        return DriverManager.getConnection(dbUrl, username, password);
+    }
+
+
 
 //レコードを取得するメソッド
 public List<Mutter> findAll(){
-	Connection conn =null;
+
 	List<Mutter> mutterList= new ArrayList<Mutter>();
 	try{
-		Class.forName(DRIVER_NAME);
-		conn = DriverManager.getConnection(JDBC_URL,DB_USER,DB_PASS);
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		try(Connection conn = getConnection()) {
+
 	//	SELECT文の準備
 		String sql =
 		"SELECT ID,NAME,TEXT FROM MUTTER ORDER BY ID DESC";
@@ -43,22 +53,16 @@ public List<Mutter> findAll(){
 			Mutter mutter = new Mutter(id,userName,text);
 			mutterList.add(mutter);
 		}
-	}catch (SQLException e) {
-		e.printStackTrace();
-		return null;
+	  } catch (URISyntaxException e) {
+          e.printStackTrace();
+          return null;
+      } catch (SQLException e) {
+          e.printStackTrace();
+          return null;
+      }
 	}catch (ClassNotFoundException e) {
 		e.printStackTrace();
 		return null;
-	}finally {
-		//データベース切断
-		if(conn != null) {
-			try {
-				conn.close();
-			}catch (SQLException e) {
-				e.printStackTrace();
-				return null;
-			}
-		}
 	}
 	//はてな？↓どういう意味？mutterListを取得
 	return mutterList;
@@ -66,11 +70,7 @@ public List<Mutter> findAll(){
 
 //createメソッドでレコードを追加
 public boolean create(Mutter mutter) {
-	Connection conn =null;
-	try {
-		//データベースへ接続
-		conn = DriverManager.getConnection(
-				JDBC_URL,DB_USER,DB_PASS);
+	try(Connection conn = getConnection()) {
 
 		//INSERT文の準備(idは自動連番なので指定しなくてよい)
 		String sql ="INSERT INTO MUTTER(NAME,TEXT) VALUES(?, ?)";
@@ -85,18 +85,14 @@ public boolean create(Mutter mutter) {
 		if(result !=1) {
 			return false;
 		}
+	} catch (URISyntaxException e) {
+        e.printStackTrace();
+        return false;
+
 	}catch (SQLException e) {
 		e.printStackTrace();
 		return false;
-	}finally {
-		//データベース切断
-		if(conn != null) {
-			try {
-				conn.close();
-			}catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
+
 	}
 				return true;
 	}
