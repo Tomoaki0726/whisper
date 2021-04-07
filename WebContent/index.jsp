@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>笹焼サイトへようこそ</h1>
-<form action="/whisper/Login" method="post">
+<form action="/Login" method="post">
 ユーザー名:<input type="text" name="name"><br>
 パスワード:<input type="password" name="pass"><br>
 <input type ="submit" value="ログイン">
