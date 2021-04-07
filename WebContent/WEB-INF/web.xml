@@ -8,14 +8,14 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>servlet.Login</servlet-class>
     </servlet>
+       <servlet>
+	    <servlet-name>Main</servlet-name>
+	    <servlet-class>servlet.Main</servlet-class>
+	  </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
-    <servlet>
-	    <servlet-name>Main</servlet-name>
-	    <servlet-class>servlet.Main</servlet-class>
-	  </servlet>
 	<servlet-mapping>
         <servlet-name>Main</servlet-name>
         <url-pattern>/Main</url-pattern>
