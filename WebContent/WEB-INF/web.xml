@@ -15,7 +15,7 @@
     <servlet>
 	    <servlet-name>Main</servlet-name>
 	    <servlet-class>servlet.Main</servlet-class>
-	   </servlet>
+	  </servlet>
 	<servlet-mapping>
         <servlet-name>Main</servlet-name>
         <url-pattern>/Main</url-pattern>
