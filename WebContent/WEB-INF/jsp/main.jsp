@@ -29,7 +29,7 @@ String errorMsg =(String) request.getAttribute("errorMsg");
 </p>
 <p><a href="/whisper/Main">更新</a></p>
 <!-- Main.javaへpostで送信 -->
-<form action="/whisper/Main" method="post">
+<form action="/Main" method="post">
 <!-- ささやきを入力 -->
 <input type="text" name="text">
 <input type="submit" value="ささやく">
