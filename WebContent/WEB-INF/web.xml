@@ -10,6 +10,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>whisper/Login</url-pattern>
     </servlet-mapping>
 </web-app>
