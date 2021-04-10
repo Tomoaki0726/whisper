@@ -16,7 +16,7 @@ public class MutterDAO {
 
     private static Connection getConnection() throws URISyntaxException, SQLException {
             // heroku configに設定されている値を取得。
-        URI dbUri = new URI(System.getenv("DATABASE_URL"));
+        URI dbUri = new URI(System.getenv("mysql://be6d7e4a904395:864d3dc7@us-cdbr-east-03.cleardb.com/heroku_4488a6e33c6001c?reconnect=true"));
         // :をデリミタとして必要な情報を抜き取る。
         String username = dbUri.getUserInfo().split(":")[0];
         String password = dbUri.getUserInfo().split(":")[1];
