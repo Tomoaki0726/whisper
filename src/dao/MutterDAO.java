@@ -37,7 +37,7 @@ public class MutterDAO {
     		conn = getConnection();
     	//	SELECT文の準備
     		String sql =
-    		"SELECT ID,NAME,TEXT FROM MUTTER ORDER BY ID DESC";
+    		"SELECT ID,NAME,TEXT FROM mutter ORDER BY ID DESC";
     		//SQL文をDBに届ける(SQLの送信)
     		PreparedStatement pStmt = conn.prepareStatement(sql);
 
@@ -85,7 +85,7 @@ public class MutterDAO {
     		conn = getConnection();
 
     		//INSERT文の準備(idは自動連番なので指定しなくてよい)
-    		String sql ="INSERT INTO MUTTER(NAME,TEXT) VALUES(?, ?)";
+    		String sql ="INSERT INTO mutter(NAME,TEXT) VALUES(?, ?)";
     		PreparedStatement pStmt = conn.prepareStatement(sql);
     		//INSERT文の「?」に使用する値を設定してSQLを完成
     		pStmt.setString(1, mutter.getUserName());
