@@ -25,10 +25,10 @@ String errorMsg =(String) request.getAttribute("errorMsg");
 <%= loginUser.getName() %>
  --%>
 <c:out value ="${loginUser.name}"/>さん、ログイン中
-<a href = "/whisper/Logout">ログアウト</a>
+<a href = "/Logout">ログアウト</a>
 </p>
 
-<p><a href="/whisper/Main">更新</a></p>
+<p><a href="/Main">更新</a></p>
 <!-- Main.javaへpostで送信 -->
 <form action="/Main" method="post">
 <!-- ささやきを入力 -->
