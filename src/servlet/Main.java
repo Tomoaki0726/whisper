@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,7 +37,7 @@ public class Main extends HttpServlet {
 
 	if(loginUser == null) {//ログインしていない場合
 		//リダイレクト
-		response.sendRedirect("/whisper/");
+		response.sendRedirect("/whisper");
 	}else {//ログイン済みの場合
 		//フォワード
 		RequestDispatcher dispatcher =
