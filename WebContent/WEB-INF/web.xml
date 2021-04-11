@@ -11,6 +11,7 @@
 	<servlet>
 		<servlet-name>Main</servlet-name>
 		<servlet-class>servlet.Main</servlet-class>
+		<jsp-file>/index.jsp</jsp-file>
 	</servlet>
 	<servlet>
 		<servlet-name>Logout</servlet-name>

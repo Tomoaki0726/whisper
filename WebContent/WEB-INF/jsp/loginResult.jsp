@@ -19,7 +19,7 @@ User loginUser = (User) session.getAttribute("loginUser");
 	<a href="/Main">ささやき投稿一覧へ</a>
 <% }else{ %>
 	<p>ログインに失敗しました</p>
-	<a href="/whisper/">TOPへ</a>
+	<a href="/whisper">TOPへ</a>
 <%} %>
 </body>
 </html>
