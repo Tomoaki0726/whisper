@@ -9,7 +9,7 @@
 <body>
 <h1>笹焼ログアウト</h1>
 <p>ログアウトしました</p>
-<a href ="/whisper/index.jsp">トップへ</a>
+<a href ="/index.jsp">トップへ</a>
 
 </body>
 </html>
