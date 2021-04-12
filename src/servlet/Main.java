@@ -53,7 +53,7 @@ public class Main extends HttpServlet {
 	//投稿機能の為の追加メソッド
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//リクエストパラメータの取得
-		request.setCharacterEncoding("utf8");
+		request.setCharacterEncoding("UTF-8");
 		String text = request.getParameter("text");
 
 		//入力値チェック（入力されているか？文字数は０以外か？）
