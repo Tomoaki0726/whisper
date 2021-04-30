@@ -34,6 +34,7 @@ String errorMsg =(String) request.getAttribute("errorMsg");
 <!-- ささやきを入力 -->
 <input type="text" name="text">
 <input type="submit" value="ささやく">
+<input type='hidden' name='charset' value='utf8' />
 </form>
 <%--
 
@@ -49,7 +50,6 @@ String errorMsg =(String) request.getAttribute("errorMsg");
 <c:if test= "${not empty errorMsg }">
 	<p>${errorMsg }</p>
 </c:if>
-<!--例外発生ポイント↓ -->
 <c:forEach var ="mutter" items="${mutterList}">
 	<p><c:out value="${mutter.userName}"/> :<c:out value=" ${mutter.text} "/></p>
 </c:forEach>
