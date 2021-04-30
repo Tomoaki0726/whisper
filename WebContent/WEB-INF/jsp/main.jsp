@@ -30,7 +30,7 @@ String errorMsg =(String) request.getAttribute("errorMsg");
 
 <p><a href="/Main">更新</a></p>
 <!-- Main.javaへpostで送信 -->
-<form action="/Main" method="post">
+<form action="/Main" method="post" accept-charset="UTF-8">
 <!-- ささやきを入力 -->
 <input type="text" name="text">
 <input type="submit" value="ささやく">
